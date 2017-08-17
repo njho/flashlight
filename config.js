@@ -9,7 +9,7 @@
 /** Firebase Settings
  ***************************************************/
 
- var serviceAccount = require("ip-gifty-staging-9031031bdc34.json");
+ var serviceAccount = require("./ip-gifty-staging-9031031bdc34.json");
 
 // Your Firebase instance where we will listen and write search results
 exports.FB_URL   = process.env.FB_URL || "https://ip-gifty-staging.firebaseio.com";
