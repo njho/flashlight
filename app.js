@@ -61,6 +61,8 @@ var timeoutObj = setInterval(function() {
     });
 }, 5000);
 
+console.log(conf.FB_SERVICEACCOUNT);
+
 function initFlashlight() {
   console.log('Connecting to Firebase %s'.grey, conf.FB_URL);
   fbutil.init(conf.FB_URL, conf.FB_SERVICEACCOUNT);
