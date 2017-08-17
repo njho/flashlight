@@ -68,6 +68,13 @@ function initFlashlight() {
   console.log('Connecting to Firebase %s'.grey, conf.FB_URL);
   console.log(conf.FB_SERVICEACCOUNT);
   fbutil.init(conf.FB_URL, conf.FB_SERVICEACCOUNT);
+  
+  var db = admin.database();
+var ref = db.ref("offers");
+ref.once("value", function(snapshot) {
+  console.log(snapshot.val());
+});
+  
   PathMonitor.process(esc, conf.paths, conf.FB_PATH);
   SearchQueue.init(esc, conf.FB_REQ, conf.FB_RES, conf.CLEANUP_INTERVAL);
 }
