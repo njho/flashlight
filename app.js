@@ -61,6 +61,7 @@ var timeoutObj = setInterval(function() {
     });
 }, 5000);
 
+console.log('work');
 console.log(conf.FB_SERVICEACCOUNT);
 
 function initFlashlight() {
