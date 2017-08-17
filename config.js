@@ -10,7 +10,7 @@
  ***************************************************/
 
 // Your Firebase instance where we will listen and write search results
-exports.FB_URL   = process.env.FB_URL || 'https://<YOUR APP>.firebaseio.com';
+exports.FB_URL   = process.env.FB_URL || "https://ip-gifty-staging.firebaseio.com";
 
 // The path in your Firebase where clients will write search requests
 exports.FB_REQ   = process.env.FB_REQ || 'search/request';
@@ -29,11 +29,13 @@ if( process.env.BONSAI_URL ) {
   processBonsaiUrl(exports, process.env.BONSAI_URL);
 }
 else {
+
+  console.error('were notdfasdfasdfsdhere');
   // ElasticSearch server's host URL
   exports.ES_HOST  = process.env.ES_HOST || 'localhost';
 
   // ElasticSearch server's host port
-  exports.ES_PORT  = process.env.ES_PORT || '9200';
+  exports.ES_PORT  = process.env.PORT || '9200';
 
   // ElasticSearch username for http auth
   exports.ES_USER  = process.env.ES_USER || null;
@@ -61,20 +63,9 @@ else {
  ****************************************************/
 exports.paths = [
   {
-    path : "users",
+    path : "https://ip-gifty-staging.firebaseio.com/offers",
     index: "firebase",
-    type : "user"
-  },
-  {
-    path  : "messages",
-    index : "firebase",
-    type  : "message",
-    fields: ['msg', 'name'],
-    filter: function(data) { return data.name !== 'system'; }
-    // see readme
-    //, parser: function(data) { data.msg = data.msg.toLowerCase(); return data; }
-    // see readme
-    //, refBuilder: function(ref, path) { return ref.orderBy(path.sortField).startAt(Date.now()); }
+    type : "offers"
   }
 ];
 

@@ -4,11 +4,43 @@
  * @version 0.3, 3 June 2014
  */
 
+var admin = require("firebase-admin");
+
+// Fetch the service account key JSON file contents
+var serviceAccount = require("service-account.json");
+
+// Initialize the app with a service account, granting admin privileges
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://ip-gifty-staging.firebaseio.com"
+});
+
+
 var elasticsearch = require('elasticsearch'),
   conf = require('./config'),
   fbutil = require('./lib/fbutil'),
   PathMonitor = require('./lib/PathMonitor'),
   SearchQueue = require('./lib/SearchQueue');
+
+
+var bonsai_url = process.env.BONSAI_URL;
+var client = new elasticsearch.Client({
+                         host: bonsai_url,
+                         log: 'trace' 
+                     });
+    // Test the connection...
+client.ping({
+    requestTimeout: 30000,
+    hello: "elasticsearch"
+  },
+  function (error) {
+    if (error) {
+      console.error('>>>My Bonsai url is>>>' + bonsai_url)
+      console.error('>>>Elasticsearch cluster is down!');
+    } else {
+      console.log('All is well');
+    }
+  }
 
 var escOptions = {
   hosts: [{
