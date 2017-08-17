@@ -65,7 +65,7 @@ else {
  ****************************************************/
 exports.paths = [
   {
-    path : "https://ip-gifty-staging.firebaseio.com/offers",
+    path : "offers",
     index: "firebase",
     type : "offers"
   }
