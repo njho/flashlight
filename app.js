@@ -7,7 +7,7 @@
 var admin = require("firebase-admin");
 
 // Fetch the service account key JSON file contents
-var serviceAccount = require("service-account.json");
+var serviceAccount = require("./service-account.json");
 
 // Initialize the app with a service account, granting admin privileges
 admin.initializeApp({
