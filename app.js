@@ -6,15 +6,6 @@
 
 var admin = require("firebase-admin");
 
-// Fetch the service account key JSON file contents
-var serviceAccount = require("./service-account.json");
-
-// Initialize the app with a service account, granting admin privileges
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://ip-gifty-staging.firebaseio.com"
-});
-
 
 var elasticsearch = require('elasticsearch'),
   conf = require('./config'),
