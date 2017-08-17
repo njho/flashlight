@@ -9,6 +9,8 @@
 /** Firebase Settings
  ***************************************************/
 
+ var serviceAccount = require("ip-gifty-staging-9031031bdc34.json");
+
 // Your Firebase instance where we will listen and write search results
 exports.FB_URL   = process.env.FB_URL || "https://ip-gifty-staging.firebaseio.com";
 
@@ -20,7 +22,7 @@ exports.FB_RES   = process.env.FB_RES || 'search/response';
 
 // See https://firebase.google.com/docs/server/setup for instructions
 // to auto-generate the service-account.json file
-exports.FB_SERVICEACCOUNT = process.env.FB_ACC || 'ip-gifty-staging-9031031bdc34.json';
+exports.FB_SERVICEACCOUNT = process.env.FB_ACC || serviceAccount;
 
 /** ElasticSearch Settings
  *********************************************/
