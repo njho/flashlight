@@ -41,7 +41,7 @@ client.ping({
       console.log('All is well');
     }
   }
-
+);
 var escOptions = {
   hosts: [{
     host: conf.ES_HOST,
