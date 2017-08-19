@@ -67,7 +67,9 @@ exports.paths = [
   {
     path : "offers",
     index: "firebase",
-    type : "offers"
+    type : "offers",
+    fields: ['name', 'emojis', 'description', 'price']
+
   }
 ];
 
